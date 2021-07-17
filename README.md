@@ -26,6 +26,7 @@ A chaque interaction de l'utilisateur, le state de ce component est mis à jour 
 <br>
 Les hooks utilisées sont: <br> - useState: pour manipuler les state du formulaire, ainsi que de modifier les paramètres du query.<br>
 -useEffect: pour construire les paramètres finaux et modifier le contexte.
+-useContext: pour sauvegarder les filtres et les passer à TodosComponent qui va les utiliser à faire le query
 
 #### `- TodosComponent`
 Ce components est responsable de recevoir le contexte, faire un query en spécifiant les filtres reçus dans le contexte, ensuite produire un affichage de la manière suivante:<br>
