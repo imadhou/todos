@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import { ApolloProvider} from "@apollo/client";
+import client from "./graphql/client";
+import HomePage from "./components/pages/HomePage";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from "react-router-dom";
+import DetailsPage from "./components/pages/DetailsPage";
 
-function App() {
+
+export default function App() {
+  const [todo, setTodo] = useState({});
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/:id"  component={DetailsPage} />
+        </Switch>
+      </Router>
+    </ApolloProvider>
   );
 }
 
-export default App;
+
+
+
+
+
+
